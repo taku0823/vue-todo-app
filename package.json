@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-cli serve --mode development"
+    "start": "NODE_ENV=development webpack-cli serve --mode development",
+    "build": "NODE_ENV=production webpack --mode production"
   },
   "repository": {
     "type": "git",
