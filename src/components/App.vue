@@ -1,7 +1,7 @@
 <template>
   <main class="app">
     <h1>Vue Todo app</h1>
-    <app-todos></app-todos>
+    <todos />
   </main>
 </template>
 
@@ -10,7 +10,7 @@ import Todos from './Todos';
 
 export default {
   components: {
-    appTodos: Todos,
+    Todos: Todos,
   },
 };
 </script>
@@ -37,7 +37,7 @@ body {
   text-align: center;
   h1 {
     margin: 0 0 2rem;
-    color: #3fea5d;
+    color: #1dd53d;
     font-size: 4.8rem;
     letter-spacing: 0.1rem;
     line-height: 1.2;

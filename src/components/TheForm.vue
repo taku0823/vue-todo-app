@@ -72,7 +72,7 @@ export default {
   &__button {
     width: 40%;
     margin: 0 auto;
-    color: #3fea5d;
+    color: #1dd53d;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;

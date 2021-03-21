@@ -15,8 +15,32 @@ export default {
   addTodo(state) {
     state.todos.push(state.newTodo);
   },
+  toggleTodo(state, payload) {
+    const updateTodos = state.todos.map((todo) =>
+      todo.id === payload ? { ...todo, completed: !todo.completed } : todo
+    );
+    state.todos = updateTodos;
+  },
   deleteTodo(state, payload) {
     const updateTodos = state.todos.filter((todo) => todo.id !== payload);
     state.todos = updateTodos;
+  },
+  toggleEditingForm(state, payload) {
+    const updateTodos = state.todos.map((todo) =>
+      todo.id === payload ? { ...todo, showEditingForm: true } : { ...todo, showEditingForm: false }
+    );
+    state.todos = updateTodos;
+  },
+  editTodo(state, payload) {
+    const updateTodo = state.todos.map((todo) =>
+      todo.id === payload ? { ...todo, showEditingForm: false } : todo
+    );
+    state.todos = updateTodo;
+  },
+  updatedTask(state, payload) {
+    const updateTodo = state.todos.map((todo) =>
+      todo.id === payload.id ? { ...todo, task: payload.value } : todo
+    );
+    state.todos = updateTodo;
   },
 };
