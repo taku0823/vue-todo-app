@@ -29,7 +29,6 @@ export default {
   },
   setup(props) {
     const store = useStore();
-    const id = props.todo.id;
 
     const editTodo = (id) => {
       store.dispatch('editTodo', id);
@@ -37,7 +36,7 @@ export default {
 
     const updatedTask = computed({
       get: () => props.todo.task,
-      set: (value) => store.dispatch('updatedTask', { value, id }),
+      set: (value) => store.dispatch('updatedTask', value),
     });
 
     return { editTodo, updatedTask };

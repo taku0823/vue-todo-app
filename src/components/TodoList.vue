@@ -6,7 +6,8 @@
 
 <script>
 import TodoItems from './TodoItems';
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 
 export default {
@@ -14,9 +15,17 @@ export default {
     TodoItems: TodoItems,
   },
   setup() {
+    const route = useRoute();
     const store = useStore();
 
-    const todos = computed(() => store.state.todos);
+    const todos = computed(() => {
+      if (store.state.routes === 'all') return store.state.todos;
+      return store.getters[store.state.routes];
+    });
+
+    watch(route, (to) => {
+      store.dispatch('setRoutes', to.name);
+    });
 
     return { todos };
   },
@@ -29,9 +38,11 @@ export default {
   &-leave-to {
     opacity: 0;
   }
-  &-enter-active,
+  &-enter-active {
+    transition: opacity 300ms;
+  }
   &-leave-active {
-    transition: opacity 500ms;
+    transition: opacity 200ms;
   }
   &-enter-to,
   &-leave-from {

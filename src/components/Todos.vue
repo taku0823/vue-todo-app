@@ -1,20 +1,23 @@
 <template>
   <div class="todos">
     <the-form />
-    <!-- <app-nav /> -->
-    <todo-list />
+    <the-nav />
+    <router-view v-slot="{ Component }">
+      <transition name="route" mode="out-in">
+        <component :is="Component" :key="$route.path" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
 <script>
 import TheForm from './TheForm';
-import TodoList from './TodoList';
+import TheNav from './TheNav';
 
 export default {
   components: {
     TheForm: TheForm,
-    // appNav: Nav,
-    TodoList: TodoList,
+    TheNav: TheNav,
   },
 };
 </script>
@@ -25,5 +28,19 @@ export default {
   max-width: 900px;
   margin: 0 auto;
   padding: 0;
+}
+.route {
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 450ms;
+  }
+  &-enter-to,
+  &-leave-from {
+    opacity: 1;
+  }
 }
 </style>

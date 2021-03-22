@@ -32,15 +32,22 @@ export default {
     state.todos = updateTodos;
   },
   editTodo(state, payload) {
-    const updateTodo = state.todos.map((todo) =>
-      todo.id === payload ? { ...todo, showEditingForm: false } : todo
-    );
+    let updateTodo;
+    if (state.updatedTask === '') {
+      updateTodo = state.todos.map((todo) =>
+        todo.id === payload ? { ...todo, showEditingForm: false } : todo
+      );
+    } else {
+      updateTodo = state.todos.map((todo) =>
+        todo.id === payload ? { ...todo, task: state.updatedTask, showEditingForm: false } : todo
+      );
+    }
     state.todos = updateTodo;
   },
   updatedTask(state, payload) {
-    const updateTodo = state.todos.map((todo) =>
-      todo.id === payload.id ? { ...todo, task: payload.value } : todo
-    );
-    state.todos = updateTodo;
+    state.updatedTask = payload;
+  },
+  setRoutes(state, payload) {
+    state.routes = payload;
   },
 };

@@ -18,7 +18,10 @@ export default {
   editTodo({ commit }, id) {
     commit('editTodo', id);
   },
-  updatedTask({ commit }, { value, id }) {
-    commit('updatedTask', { value, id });
+  updatedTask({ commit }, value) {
+    commit('updatedTask', value);
+  },
+  setRoutes({ commit }, name) {
+    commit('setRoutes', name);
   },
 };
