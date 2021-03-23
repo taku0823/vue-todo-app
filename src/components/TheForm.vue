@@ -3,8 +3,7 @@
     <input
       class="form__input"
       type="text"
-      name="task"
-      v-model="updateNewTodo"
+      v-model="setNewTodo"
       placeholder="What do you need to do?"
       required
     />
@@ -29,12 +28,12 @@ export default {
       store.dispatch('addTodo');
     };
 
-    const updateNewTodo = computed({
-      get: () => store.state.newTodo.task,
-      set: (value) => store.dispatch('updateNewTodo', value),
+    const setNewTodo = computed({
+      get: () => store.state.newTodo,
+      set: (value) => store.dispatch('setNewTodo', value),
     });
 
-    return { addTodo, updateNewTodo };
+    return { addTodo, setNewTodo };
   },
 };
 </script>

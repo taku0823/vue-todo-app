@@ -32,7 +32,7 @@
     &:active {
       box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
     }
-    &.active {
+    &.linkActive {
       background-color: #1dd53d;
       color: #ebecf0;
     }

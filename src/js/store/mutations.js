@@ -1,53 +1,63 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export default {
-  initForm(state) {
-    state.newTodo = {
-      task: '',
+  setNewTodo(state, payload) {
+    state.newTodo = payload;
+  },
+  addTodo(state) {
+    state.todos.push({
+      task: state.newTodo,
       id: uuidv4(),
       completed: false,
       showEditingForm: false,
-    };
-  },
-  updateNewTodo(state, payload) {
-    state.newTodo = { ...state.newTodo, task: payload };
-  },
-  addTodo(state) {
-    state.todos.push(state.newTodo);
+    });
+    state.newTodo = '';
   },
   toggleTodo(state, payload) {
-    const updateTodos = state.todos.map((todo) =>
+    const updatedTodos = state.todos.map((todo) =>
       todo.id === payload ? { ...todo, completed: !todo.completed } : todo
     );
-    state.todos = updateTodos;
+    state.todos = updatedTodos;
   },
   deleteTodo(state, payload) {
-    const updateTodos = state.todos.filter((todo) => todo.id !== payload);
-    state.todos = updateTodos;
+    const updatedTodos = state.todos.filter((todo) => todo.id !== payload);
+    state.todos = updatedTodos;
   },
   toggleEditingForm(state, payload) {
-    const updateTodos = state.todos.map((todo) =>
+    const updatedTodos = state.todos.map((todo) =>
       todo.id === payload ? { ...todo, showEditingForm: true } : { ...todo, showEditingForm: false }
     );
-    state.todos = updateTodos;
+    state.todos = updatedTodos;
   },
   editTodo(state, payload) {
-    let updateTodo;
+    let updatedTodo;
     if (state.updatedTask === '') {
-      updateTodo = state.todos.map((todo) =>
+      updatedTodo = state.todos.map((todo) =>
         todo.id === payload ? { ...todo, showEditingForm: false } : todo
       );
     } else {
-      updateTodo = state.todos.map((todo) =>
+      updatedTodo = state.todos.map((todo) =>
         todo.id === payload ? { ...todo, task: state.updatedTask, showEditingForm: false } : todo
       );
     }
-    state.todos = updateTodo;
+    state.updatedTask = '';
+    state.todos = updatedTodo;
   },
   updatedTask(state, payload) {
     state.updatedTask = payload;
   },
   setRoutes(state, payload) {
     state.routes = payload;
+  },
+  getLocalStorage(state) {
+    state.todos = JSON.parse(window.localStorage.getItem('todos'));
+  },
+  setInitTodo(state) {
+    state.todos.push({
+      task: "I don't know what to do...",
+      id: uuidv4(),
+      completed: false,
+      showEditingForm: false,
+    });
   },
 };

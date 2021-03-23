@@ -1,16 +1,15 @@
 <template>
-  <li class="todoitems" :class="{ showEditingForm: todo.showEditingForm }">
+  <li :class="['todoitems', todo.showEditingForm ? 'showEditingForm' : '']">
     <editing-form v-if="todo.showEditingForm" :todo="todo" />
     <template v-else>
       <div class="todoitems__left">
         <button
-          class="todoitems__check"
-          :class="{ isChecked: todo.completed }"
+          :class="['todoitems__check', todo.completed ? 'isChecked' : '']"
           @click="toggleTodo(todo.id)"
         >
           <i class="fas fa-check"></i>
         </button>
-        <p class="todoitems__task" :class="{ isChecked: todo.completed }">{{ todo.task }}</p>
+        <p :class="['todoitems__task', todo.completed ? 'isChecked' : '']">{{ todo.task }}</p>
       </div>
       <div class="todoitems__right">
         <button class="todoitems__delete" @click="deleteTodo(todo.id)">
@@ -25,8 +24,8 @@
 </template>
 
 <script>
-import EditingForm from './EditingForm';
 import { useStore } from 'vuex';
+import EditingForm from './EditingForm';
 
 export default {
   components: {

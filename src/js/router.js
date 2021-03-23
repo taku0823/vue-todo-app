@@ -20,7 +20,7 @@ const router = createRouter({
       name: 'completed',
     },
   ],
-  linkActiveClass: 'active',
+  linkActiveClass: 'linkActive',
 });
 
 export default router;
