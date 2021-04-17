@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export default {
-  setNewTodo(state, payload) {
-    state.newTodo = payload;
+  setNewTodo(state, newTodo) {
+    state.newTodo = newTodo;
   },
   addTodo(state) {
     state.todos.push({
@@ -13,44 +13,44 @@ export default {
     });
     state.newTodo = '';
   },
-  toggleTodo(state, payload) {
+  toggleTodo(state, id) {
     const updatedTodos = state.todos.map((todo) =>
-      todo.id === payload ? { ...todo, completed: !todo.completed } : todo
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
     state.todos = updatedTodos;
   },
-  deleteTodo(state, payload) {
-    const updatedTodos = state.todos.filter((todo) => todo.id !== payload);
+  deleteTodo(state, id) {
+    const updatedTodos = state.todos.filter((todo) => todo.id !== id);
     state.todos = updatedTodos;
   },
-  toggleEditingForm(state, payload) {
+  toggleEditingForm(state, id) {
     const updatedTodos = state.todos.map((todo) =>
-      todo.id === payload ? { ...todo, showEditingForm: true } : { ...todo, showEditingForm: false }
+      todo.id === id ? { ...todo, showEditingForm: true } : { ...todo, showEditingForm: false }
     );
     state.todos = updatedTodos;
   },
-  editTodo(state, payload) {
+  editTodo(state, id) {
     let updatedTodo;
     if (state.updatedTask === '') {
       updatedTodo = state.todos.map((todo) =>
-        todo.id === payload ? { ...todo, showEditingForm: false } : todo
+        todo.id === id ? { ...todo, showEditingForm: false } : todo
       );
     } else {
       updatedTodo = state.todos.map((todo) =>
-        todo.id === payload ? { ...todo, task: state.updatedTask, showEditingForm: false } : todo
+        todo.id === id ? { ...todo, task: state.updatedTask, showEditingForm: false } : todo
       );
     }
     state.updatedTask = '';
     state.todos = updatedTodo;
   },
-  updatedTask(state, payload) {
-    state.updatedTask = payload;
+  updatedTask(state, value) {
+    state.updatedTask = value;
   },
-  setRoutes(state, payload) {
-    state.routes = payload;
+  setRoutes(state, name) {
+    state.routes = name;
   },
-  getLocalStorage(state) {
-    state.todos = JSON.parse(window.localStorage.getItem('todos'));
+  getLocalStorage(state, value) {
+    state.todos = value;
   },
   setInitTodo(state) {
     state.todos.push({

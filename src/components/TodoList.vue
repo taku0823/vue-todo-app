@@ -9,7 +9,7 @@ import TodoItems from './TodoItems';
 
 export default {
   components: {
-    TodoItems: TodoItems,
+    TodoItems,
   },
   props: {
     todos: {

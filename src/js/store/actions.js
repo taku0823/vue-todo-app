@@ -1,6 +1,6 @@
 export default {
-  setNewTodo({ commit }, newTask) {
-    commit('setNewTodo', newTask);
+  setNewTodo({ commit }, newTodo) {
+    commit('setNewTodo', newTodo);
   },
   addTodo({ commit }) {
     commit('addTodo');
@@ -23,8 +23,8 @@ export default {
   setRoutes({ commit }, name) {
     commit('setRoutes', name);
   },
-  getLocalStorage({ commit }) {
-    commit('getLocalStorage');
+  getLocalStorage({ commit }, value) {
+    commit('getLocalStorage', value);
   },
   setInitTodo({ commit }) {
     commit('setInitTodo');

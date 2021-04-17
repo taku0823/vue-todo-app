@@ -19,8 +19,8 @@ import TheNav from './TheNav';
 
 export default {
   components: {
-    TheForm: TheForm,
-    TheNav: TheNav,
+    TheForm,
+    TheNav,
   },
   setup() {
     const route = useRoute();
@@ -47,9 +47,10 @@ export default {
     );
 
     onMounted(() => {
-      if (JSON.parse(window.localStorage.getItem('todos')).length) {
-        store.dispatch('getLocalStorage');
-      } else {
+      const val = JSON.parse(window.localStorage.getItem('todos'));
+      try {
+        val.length ? store.dispatch('getLocalStorage', val) : store.dispatch('setInitTodo');
+      } catch (err) {
         store.dispatch('setInitTodo');
       }
     });
