@@ -5,17 +5,17 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
+      path: '/vue-todo-app/',
       component: Todolist,
       name: 'all',
     },
     {
-      path: '/active',
+      path: '/vue-todo-app/active',
       component: Todolist,
       name: 'active',
     },
     {
-      path: '/completed',
+      path: '/vue-todo-app/completed',
       component: Todolist,
       name: 'completed',
     },

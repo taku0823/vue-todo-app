@@ -17,7 +17,8 @@ module.exports = {
   entry: `${src}/js/index.js`,
   output: {
     path: dist,
-    filename: 'js/main.js'
+    filename: 'js/main.js',
+    publicPath: '/vue-todo-app/'
   },
   module: {
     rules: [

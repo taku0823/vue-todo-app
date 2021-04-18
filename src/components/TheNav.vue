@@ -1,8 +1,8 @@
 <template>
   <nav class="nav">
-    <router-link to="/" class="nav__link">All</router-link>
-    <router-link to="/active" class="nav__link">Active</router-link>
-    <router-link to="/completed" class="nav__link">Completed</router-link>
+    <router-link to="/vue-todo-app/" class="nav__link">All</router-link>
+    <router-link to="/vue-todo-app/active" class="nav__link">Active</router-link>
+    <router-link to="/vue-todo-app/completed" class="nav__link">Completed</router-link>
   </nav>
 </template>
 

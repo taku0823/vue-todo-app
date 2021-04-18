@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack-cli serve --mode development",
-    "build": "NODE_ENV=production webpack --mode production"
+    "build": "NODE_ENV=production webpack --mode production",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/taku0823/vue-todo-app/issues"
   },
-  "homepage": "https://github.com/taku0823/vue-todo-app#readme",
+  "homepage": "https://taku0823.github.io/vue-todo-app/",
   "devDependencies": {
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
@@ -25,6 +26,7 @@
     "@vue/compiler-sfc": "^3.0.7",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.1.3",
+    "gh-pages": "^3.1.0",
     "node-sass": "^5.0.0",
     "postcss-loader": "^5.2.0",
     "sass-loader": "^11.0.1",
