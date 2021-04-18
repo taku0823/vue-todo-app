@@ -57,7 +57,10 @@ export default {
     margin-bottom: 3rem;
     color: #666;
     font-family: 'Montserrat', sans-serif;
+    -webkit-box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    -moz-box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
     box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    -webkit-appearance: none;
     box-sizing: border-box;
     text-shadow: 1px 1px 0 #fff;
     transition: all 0.2s ease-in-out;
@@ -65,7 +68,10 @@ export default {
       color: #838aa0;
     }
     &:focus {
+      -webkit-box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+      -moz-box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
       box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+      -webkit-appearance: none;
     }
   }
   &__button {

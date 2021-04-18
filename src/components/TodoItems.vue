@@ -155,6 +155,9 @@ export default {
     padding: 1.2rem;
     margin-bottom: 1.5rem;
     font-size: 1.4rem;
+    &.showEditingForm {
+      padding: 0.95rem 1.6rem;
+    }
     button {
       width: 30px;
       padding: 0.8rem;

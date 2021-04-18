@@ -63,12 +63,18 @@ export default {
     padding: 1.4rem;
     font-family: 'Montserrat', sans-serif;
     color: #666;
+    -webkit-box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    -moz-box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
     box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    -webkit-appearance: none;
     box-sizing: border-box;
     text-shadow: 1px 1px 0 #fff;
     transition: all 0.2s ease-in-out;
     &:focus {
+      -webkit-box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+      -moz-box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
       box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+      -webkit-appearance: none;
     }
   }
   &__button {
@@ -85,6 +91,36 @@ export default {
     cursor: pointer;
     .fa-edit {
       transform: scale(0.9);
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .editingForm {
+    &__input,
+    &__button {
+      padding: 1.4rem;
+      font-size: 1.4rem;
+    }
+    &__input {
+      width: 92%;
+    }
+    &__button {
+      width: 42px;
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .editingForm {
+    &__input,
+    &__button {
+      padding: 0.8rem;
+      width: 30px;
+      font-size: 1.2rem;
+    }
+    &__input {
+      width: 88%;
     }
   }
 }
