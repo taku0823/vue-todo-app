@@ -137,4 +137,29 @@ export default {
     margin: 0 1rem;
   }
 }
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .todoitems {
+    padding: 1.4rem;
+    margin-bottom: 1.8rem;
+    button {
+      width: 30px;
+      padding: 0.8rem;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .todoitems {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    button {
+      width: 30px;
+      padding: 0.8rem;
+      font-size: 1.2rem;
+    }
+  }
+}
 </style>

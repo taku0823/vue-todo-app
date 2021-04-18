@@ -88,4 +88,35 @@ export default {
     }
   }
 }
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .form {
+    margin-bottom: 2.5rem;
+    &__input,
+    &__button {
+      padding: 1.4rem;
+    }
+    &__input {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .form {
+    margin-bottom: 1.8rem;
+    &__input,
+    &__button {
+      padding: 1.3rem;
+      font-size: 1.4rem;
+    }
+    &__input {
+      margin-bottom: 1.8rem;
+      width: 100%;
+    }
+    &__button {
+      width: 65%;
+    }
+  }
+}
 </style>

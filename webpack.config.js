@@ -12,25 +12,25 @@ module.exports = {
   mode: nodeEnv,
   devtool: isDev ? 'source-map' : 'eval',
   resolve: {
-    extensions: ['.vue', '.js', '.json']
+    extensions: ['.vue', '.js', '.json'],
   },
   entry: `${src}/js/index.js`,
   output: {
     path: dist,
     filename: 'js/main.js',
-    publicPath: '/vue-todo-app/'
+    publicPath: '/vue-todo-app/',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.vue$/,
         exclude: /node_modules/,
-        loader: 'vue-loader-v16'
+        loader: 'vue-loader-v16',
       },
       {
         test: /\.(scss|css)/,
@@ -40,28 +40,34 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
-            loader: 'postcss-loader'
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              postcssOptions: {
+                plugins: [require('autoprefixer')],
+              },
+            },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: false,
-      __VUE_PROD_DEVTOOLS__: false
-    })
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
   ],
   devServer: {
     open: true,
@@ -69,6 +75,6 @@ module.exports = {
     hot: true,
     port: 8080,
     contentBase: dist,
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+  },
 };

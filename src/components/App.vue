@@ -44,4 +44,26 @@ body {
     text-shadow: 2px 3px 0px rgba(200, 200, 200, 1);
   }
 }
+
+@media screen and (max-width: 599px) {
+  .app {
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+    h1 {
+      margin: 0 0 1.6rem;
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .app {
+    width: calc(100% - 4rem);
+    margin: 0 auto;
+    h1 {
+      margin: 0 0 2rem;
+      font-size: 3.6rem;
+    }
+  }
+}
 </style>

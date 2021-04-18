@@ -38,4 +38,14 @@
     }
   }
 }
+
+@media screen and (max-width: 599px) {
+  .nav {
+    justify-content: space-between;
+    &__link {
+      width: 30%;
+      font-size: 1.2rem;
+    }
+  }
+}
 </style>
